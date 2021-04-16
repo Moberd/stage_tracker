@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "482244378684",
+    "project_id": "stagetracker",
+    "storage_bucket": "stagetracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482244378684:android:fb67d53100be878a3c4339",
+        "android_client_info": {
+          "package_name": "com.example.stage_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482244378684-7i323m0kp0jqqgeqai5tm79fcdt566ub.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.stage_tracker",
+            "certificate_hash": "a37ba708a671e01bc0bfc067252cebccbc605532"
+          }
+        },
+        {
+          "client_id": "482244378684-hmtd6787nqm0u3q6oadm7f7vp8obdqdt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsyEQTMWGzWZldLHlT_xCgM1PZqBa8O58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482244378684-hmtd6787nqm0u3q6oadm7f7vp8obdqdt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
