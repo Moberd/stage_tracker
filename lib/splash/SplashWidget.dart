@@ -27,6 +27,7 @@ class SplashWidgetState extends State<SplashWidget>
           Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
         }
     });
+    return Center(child: CircularProgressIndicator(),);
   }
 
 }
