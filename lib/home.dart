@@ -1,49 +1,17 @@
-import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:stage_tracker/splash/SplashWidget.dart';
 
-void main() {
-  runApp(MyApp());
+class Home extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    throw UnimplementedError();
+  }
 }
 
-class MyApp extends StatelessWidget {
-
-  //final Future<FirebaseApp> _initialization = Firebase.initializeApp();
-
+class HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    /*
-    return FutureBuilder(
-        // Initialize FlutterFire:
-        future: _initialization,
-        builder: (context, snapshot)
-    {
-      // Check for errors
-      if (snapshot.hasError) {
-        //return SomethingWentWrong(); экран ошибочки
-      }
-      // Once complete, show your application
-      if (snapshot.connectionState == ConnectionState.done) {
-        return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
-            theme: ThemeData(
-              primarySwatch: Colors.deepPurple,
-              visualDensity: VisualDensity.adaptivePlatformDensity,
-            ),
-            home: SplashWidget()
-
-          ///Home(),
-        );
-      }
-      return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: MyHomePage(title: 'Flutter Demo Home Page'),
-      );
-    });*/
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -54,7 +22,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
+//////////////////////////////////
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -88,10 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .headline4,
+              style: Theme.of(context).textTheme.headline4,
             ),
           ],
         ),
