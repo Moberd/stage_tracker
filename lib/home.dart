@@ -8,15 +8,49 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
+
+  int _currentIndex = 1;
+  final List<Widget> _children = [
+    MyHomePage(title: 'Flutter Demo Home Page'),
+    MyHomePage(title: 'Flutter Demo Home Page'),
+    MyHomePage(title: 'Flutter Demo Home Page'),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    return WillPopScope(
+        child: Scaffold(
+          //appBar: AppBar(title: Text('page 1')), ///Закомментируйте эту строку, когда создадите нормальные окна приложения
+          body: _children[_currentIndex],
+
+          bottomNavigationBar: BottomNavigationBar(
+            onTap: onTabTapped,
+            currentIndex: _currentIndex,
+            items: [
+              ///Календарь со статистикой
+              BottomNavigationBarItem(
+                  icon: new Icon(Icons.calendar_today), label: 'Calendar'),
+
+              ///Главный экран с вводом информации
+              BottomNavigationBarItem(
+                  icon: new Icon(Icons.home), label: 'Home'),
+
+              /// социальная часть
+              BottomNavigationBarItem(
+                  icon: new Icon(Icons.account_box), label: 'Share')
+            ],
+          ),
+        ),
+        onWillPop: () async {
+          return false;
+        });
+  }
+
+  void onTabTapped(int index) {
+    setState(() {
+      print(index);
+      _currentIndex = index;
+    });
   }
 }
 
