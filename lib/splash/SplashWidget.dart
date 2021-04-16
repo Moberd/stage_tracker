@@ -2,6 +2,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:stage_tracker/autorization/authorization_window_widget.dart';
 import 'package:stage_tracker/home.dart';
 
 class SplashWidget extends StatefulWidget{
@@ -24,7 +25,7 @@ class SplashWidgetState extends State<SplashWidget>
         }
       else
         {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => AuthorizationWindowWidget()));
         }
     });
     return Center(child: CircularProgressIndicator(),);

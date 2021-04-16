@@ -32,99 +32,111 @@ class AuthorizationWindowWidgetState extends State<AuthorizationWindowWidget> {
           resizeToAvoidBottomInset: true,
           body: SingleChildScrollView(
             reverse: true,
-            child: Padding(
-              padding: EdgeInsets.only(
-                  left: 60.0, top: 60.0, right: 60.0, bottom: 20.0),
-              child: Column(
-                children: [
-                  Image.asset(
-                    'assets/logo.png',
-                    height: 256,
-                  ),
-                  //Центральный блок
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      //Поле логина
-                      TextFormField(
-                        controller: loginController,
-                        decoration: new InputDecoration(labelText: "Email"),
-                        keyboardType: TextInputType.emailAddress,
+            child: Column(
+              children: [
+                Padding(
+                    padding: EdgeInsets.only(
+                        left: 60.0, top: 120.0, right: 60.0, bottom: 60.0),
+                    child: Text(
+                      "Sign In",
+                      style: TextStyle(
+                        fontSize: 32.0,
+                        color: Color(0xFF5DB075),
                       ),
-
-                      //Поле пароля
-                      TextFormField(
-                        controller: passwordController,
-                        obscureText: _passwordVisible,
-                        decoration: new InputDecoration(
-                          labelText: "Password",
-
-                          //кнопка показа пароля
-                          suffixIcon: IconButton(
-                              icon: Icon(
-                                _passwordVisible
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Theme.of(context).primaryColorDark,
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  _passwordVisible = !_passwordVisible;
-                                });
-                              }),
-                        ),
-                      ),
-
-                      //кнопка восстановления пароля
-                      FlatButton(
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            "Forgot password",
+                    )),
+                Padding(
+                    padding: EdgeInsets.only(
+                        left: 45.0, top: 60.0, right: 45.0, bottom: 20.0),
+                    child: Column(
+                        children: [
+                          //Поле логина
+                          TextFormField(
+                            controller: loginController,
+                            decoration: new InputDecoration(labelText: "Email"),
+                            keyboardType: TextInputType.emailAddress,
                           ),
-                        ),
-                        onPressed: onForgotPassword,
-                        textColor: Colors.grey,
-                        shape: RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.transparent),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10.0))),
-                      )
-                    ],
-                  ),
 
-                  //Нижний блок
-                  Padding(
-                      padding: EdgeInsets.fromLTRB(10, 10, 10, 50),
-                      child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              //Кнопка авторизации
-                              MaterialButton(
-                                onPressed: login,
-                                color: Color.fromARGB(255, 159, 159, 237),
-                                minWidth: 200.0,
-                                child: Text("Login"),
+                          //Поле пароля
+                          TextFormField(
+                              controller: passwordController,
+                              obscureText: _passwordVisible,
+
+                              decoration: new InputDecoration(
+
+                                  labelText: "Password",
+
+                                  //кнопка показа пароля
+                                  suffixIcon: TextButton(
+                                    child: Text(
+                                      _passwordVisible ? "Show" : "Hide",
+                                      style: TextStyle(
+                                          color: Color(0xFF5DB075)),
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        _passwordVisible = !_passwordVisible;
+                                      });
+                                    },
+                                  )))
+                        ])),
+
+                //Нижний блок
+                Padding(
+                    padding: EdgeInsets.fromLTRB(10, 70, 10, 50),
+                    child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            //Кнопка авторизации
+                            MaterialButton(
+                              onPressed: login,
+                              color: Color(0xFF5DB075),
+                              minWidth: 300.0,
+                              height: 45.0,
+                              child: Text(
+                                "Log in",style: TextStyle(
+                                fontSize: 16
                               ),
-                              //Кнопка регистрации
-                              FlatButton(
-                                child: Text("Register"),
-                                onPressed: () => onRegister(context),
-                                textColor: Colors.grey,
-                                shape: RoundedRectangleBorder(
-                                    side: BorderSide(color: Colors.transparent),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10.0))),
-                              )
-                            ],
-                          )))
-                ],
-              ),
+                              ),
+                              textColor: Color(0xFFFFFFFF),
+                              shape: RoundedRectangleBorder(
+                                  side: BorderSide(
+                                      color: Color(0x5DB075)),
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(100.0))
+                              ),
+
+                            ),
+                            TextButton(
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "Forgot password",style: TextStyle(
+                                  fontSize: 20.0,
+                                  color: Color(0xFF5DB075)
+                                ),
+                                ),
+                              ),
+                              onPressed: onForgotPassword,
+                            ),
+                          ],
+                        ))),
+                Padding(padding: EdgeInsets.only(
+                    left: 60.0, top: 120.0, right: 60.0, bottom: 60.0),
+                child: TextButton(
+                  child: Text("Sing up",
+                    style: TextStyle(
+                        color: Color(0xFF5DB075),
+                      fontSize: 24.0
+                    ),),
+                  onPressed: () => onRegister(context),
+                ),)
+              ],
             ),
-          ),
-        ));
+          )
+        )
+    );
   }
 
   void onForgotPassword() {
@@ -142,7 +154,7 @@ class AuthorizationWindowWidgetState extends State<AuthorizationWindowWidget> {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(
-              email: loginController.text, password: passwordController.text);
+          email: loginController.text, password: passwordController.text);
       Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
