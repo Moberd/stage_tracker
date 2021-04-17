@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'applications/applications.dart';
 class Home extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -9,9 +11,9 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<Home> {
 
-  int _currentIndex = 1;
+  int _currentIndex = 0;
   final List<Widget> _children = [
-    MyHomePage(title: 'Flutter Demo Home Page'),
+    Applications(),
     MyHomePage(title: 'Flutter Demo Home Page'),
     MyHomePage(title: 'Flutter Demo Home Page'),
   ];
