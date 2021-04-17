@@ -28,7 +28,7 @@ class AuthorizationWindowWidgetState extends State<AuthorizationWindowWidget> {
           return false;
         },
         child: Scaffold(
-          backgroundColor: Color(0xFFE9DDF6),
+          backgroundColor: Color(0xFFFFFFFF),
           resizeToAvoidBottomInset: true,
           body: SingleChildScrollView(
             reverse: true,
