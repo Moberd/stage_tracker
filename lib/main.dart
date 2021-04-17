@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:stage_tracker/chooseTest.dart';
 import 'package:stage_tracker/splash/SplashWidget.dart';
 
 void main() {
@@ -29,10 +30,11 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             theme: ThemeData(
+              scaffoldBackgroundColor: const Color(0xFFEFEFEF),
               primarySwatch: Colors.green,
               visualDensity: VisualDensity.adaptivePlatformDensity,
             ),
-            home: SplashWidget()
+            home: chooseWhichTest()
 
           ///Home(),
         );
